@@ -10,10 +10,10 @@ jobs:
 
         steps:
             -   name: Clone
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
 
             -   name: Set up JDK 17
-                uses: actions/setup-java@v2
+                uses: actions/setup-java@v3
                 with:
                     distribution: adopt
                     java-version: 17
@@ -23,7 +23,7 @@ jobs:
 
             -   name: Get artifact name
                 id: artifact
-                run: echo "::set-output name=name::$(cd target && ls *.jar && cd ..)"
+                run: echo "name=$(cd target && ls *.jar && cd ..)" >> $GITHUB_OUTPUT
 
             -   name: Upload artifact
                 uses: djnicholson/release-action@v2.11
