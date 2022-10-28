@@ -1,0 +1,36 @@
+name: Automatic Execution
+
+on:
+    schedule:
+        -   cron: "0 6 * * 2-4" # At 06:00 AM, Tuesday through Thursday
+
+env:
+    BOT_AUTO_RUN_RELEASE: ${{ secrets.BOT_AUTO_RUN_RELEASE }}
+    SPRING_PROFILES_ACTIVE: ${{ secrets.SPRING_PROFILES_ACTIVE }}
+    DHBW_ICS_UID: ${{ secrets.DHBW_ICS_UID }}
+    DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+    DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Clone
+                uses: actions/checkout@v3
+
+            -   name: Set up JDK 17
+                uses: actions/setup-java@v3
+                with:
+                    distribution: adopt
+                    java-version: 17
+
+            -   name: Download JAR file
+                uses: robinraju/release-downloader@v1.6
+                with:
+                    repository: yannickkirschen/discord-weather-bot
+                    latest: true
+                    fileName: discord-weather-bot-${{ env.BOT_AUTO_RUN_RELEASE }}.jar
+
+            -   name: Run bot
+                run: java -jar discord-weather-bot-${{ env.BOT_AUTO_RUN_RELEASE }}.jar
