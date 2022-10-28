@@ -1,0 +1,1 @@
+Discord Weather Bot v${project.version}

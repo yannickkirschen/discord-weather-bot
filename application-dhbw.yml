@@ -1,0 +1,9 @@
+calendar:
+    url: http://vorlesungsplan.dhbw-mannheim.de/ical.php?uid=${DHBW_ICS_UID}
+
+weather:
+    url: https://api.open-meteo.com/v1/forecast?latitude=49.51&longitude=8.49&hourly=rain,showers,snowfall&timezone=Europe%2FBerlin&start_date=DATE_PLACEHOLDER&end_date=DATE_PLACEHOLDER
+
+discord:
+    token: ${DISCORD_TOKEN}
+    channel: ${DISCORD_CHANNEL_ID}

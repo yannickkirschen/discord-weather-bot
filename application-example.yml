@@ -1,0 +1,10 @@
+calendar:
+    url: # ICS file
+
+weather:
+    # Adjust this for your needs
+    url: https://api.open-meteo.com/v1/forecast?latitude=49.51&longitude=8.49&hourly=rain,showers,snowfall&timezone=Europe%2FBerlin&start_date=DATE_PLACEHOLDER&end_date=DATE_PLACEHOLDER
+
+discord:
+    token: # Discord token
+    channel: # Discord channel ID
