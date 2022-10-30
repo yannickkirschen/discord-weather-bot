@@ -6,7 +6,7 @@
 
     <groupId>sh.yannick.bot</groupId>
     <artifactId>discord-weather-bot</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <name>discord-weather-bot</name>
     <description>A bot that sends a daily weather forecast in a discord channel.</description>
