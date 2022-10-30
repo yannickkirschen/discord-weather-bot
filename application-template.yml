@@ -5,6 +5,10 @@ weather:
     # Adjust coordinates
     url: https://api.open-meteo.com/v1/forecast?latitude=49.51&longitude=8.49&hourly=rain,showers,snowfall&timezone=Europe%2FBerlin&start_date=DATE_PLACEHOLDER&end_date=DATE_PLACEHOLDER
 
+# Override default (DE) if you don't want to set this via environment variable.
+#messages:
+#    locale: EN
+
 discord:
     token: # Discord token
     channel: # Discord channel ID

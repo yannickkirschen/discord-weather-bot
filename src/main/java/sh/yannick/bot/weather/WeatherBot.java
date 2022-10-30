@@ -9,7 +9,7 @@ import sh.yannick.bot.weather.forecast.*;
 import sh.yannick.bot.weather.message.MessageSender;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -21,6 +21,9 @@ public class WeatherBot {
 
     private final MessageGenerator generator;
 
+    @Value("${messages.locale}")
+    private String locale;
+
     @Value("${calendar.url}")
     private String calendarUrl;
 
@@ -28,13 +31,13 @@ public class WeatherBot {
     private String weatherUrl;
 
     public void execute() {
-        LocalDate date = LocalDate.now();
+        LocalDate date = LocalDate.of(2022, 10, 27);
         log.info("Generating forecast for {}.", date);
 
         LectureDay lectureDay = lecturePlanProvider.retrieve(date, calendarUrl);
         List<Forecast> forecasts = weatherProvider.retrieve(date, weatherUrl);
 
-        String message = generator.generate(lectureDay, forecasts);
+        String message = generator.generate(lectureDay, forecasts, new Locale(locale));
         sender.send(message);
     }
 }

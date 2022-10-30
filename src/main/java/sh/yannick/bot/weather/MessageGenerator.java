@@ -12,7 +12,7 @@ import java.util.*;
 @Slf4j
 @Service
 public class MessageGenerator {
-    public String generate(LectureDay lectureDay, List<Forecast> forecasts) {
+    public String generate(LectureDay lectureDay, List<Forecast> forecasts, Locale locale) {
         forecasts.sort(Comparator.comparing(Forecast::getDateTime));
 
         boolean precipitationBefore = false;
@@ -36,14 +36,15 @@ public class MessageGenerator {
         }
 
         String message;
+        ResourceBundle messages = ResourceBundle.getBundle("messages", locale);
         if (precipitationBefore && precipitationAfter) {
-            message = "Niederschlag auf Hin- und Rückfahrt erwartet. **Regenschirm einpacken!**";
+            message = messages.getString("precipitation.outward.return");
         } else if (precipitationBefore) {
-            message = "Niederschlag auf der Hinfahrt erwartet. **Regenschirm einpacken!**";
+            message = messages.getString("precipitation.outward");
         } else if (precipitationAfter) {
-            message = "Niederschlag auf der Rückfahrt erwartet. **Regenschirm einpacken!**";
+            message = messages.getString("precipitation.return");
         } else {
-            message = "Kein Niederschlag auf der Fahrt erwartet. **Regenschirm nicht nötig.**";
+            message = messages.getString("precipitation.none");
         }
 
         log.info("Message is: {}", message);
