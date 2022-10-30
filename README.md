@@ -27,7 +27,7 @@ Name                     | Value
 
 ## Execution
 
-As this is a Spring Boot application, providing a runnable Fat JAR, you can just
+As this is a Spring Boot application providing a runnable Fat JAR, you can just
 run the JAR file after setting all environment variables:
 
 `java -jar discord-weather-bot-<VERSION>.jar`
