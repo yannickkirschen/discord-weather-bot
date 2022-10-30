@@ -5,7 +5,6 @@ on:
         -   cron: "0 6 * * 2-4" # At 06:00 AM, Tuesday through Thursday
 
 env:
-    BOT_AUTO_RUN_RELEASE: ${{ secrets.BOT_AUTO_RUN_RELEASE }}
     SPRING_PROFILES_ACTIVE: ${{ secrets.SPRING_PROFILES_ACTIVE }}
     DHBW_ICS_UID: ${{ secrets.DHBW_ICS_UID }}
     DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
@@ -25,12 +24,18 @@ jobs:
                     distribution: adopt
                     java-version: 17
 
+            -   uses: oprypin/find-latest-tag@v1
+                id: latest
+                with:
+                    repository: yannickkirschen/discord-weather-bot
+                    releases-only: true
+
             -   name: Download JAR file
                 uses: robinraju/release-downloader@v1.6
                 with:
                     repository: yannickkirschen/discord-weather-bot
                     latest: true
-                    fileName: discord-weather-bot-${{ env.BOT_AUTO_RUN_RELEASE }}.jar
+                    fileName: discord-weather-bot-${{ steps.latest.outputs.tag }}.jar
 
             -   name: Run bot
-                run: java -jar discord-weather-bot-${{ env.BOT_AUTO_RUN_RELEASE }}.jar
+                run: java -jar discord-weather-bot-${{ steps.latest.outputs.tag }}.jar
