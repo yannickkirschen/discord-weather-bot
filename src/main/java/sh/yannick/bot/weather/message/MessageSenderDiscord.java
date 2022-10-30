@@ -1,4 +1,4 @@
-package sh.yannick.bot.weather;
+package sh.yannick.bot.weather.message;
 
 import discord4j.common.util.Snowflake;
 import discord4j.core.DiscordClient;

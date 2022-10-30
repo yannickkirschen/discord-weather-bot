@@ -4,7 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import sh.yannick.bot.weather.model.*;
+import sh.yannick.bot.weather.calendar.*;
+import sh.yannick.bot.weather.forecast.*;
+import sh.yannick.bot.weather.message.MessageSender;
 
 import java.time.LocalDate;
 import java.util.List;

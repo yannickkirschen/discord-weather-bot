@@ -1,6 +1,4 @@
-package sh.yannick.bot.weather;
-
-import sh.yannick.bot.weather.model.LectureDay;
+package sh.yannick.bot.weather.calendar;
 
 import java.time.LocalDate;
 

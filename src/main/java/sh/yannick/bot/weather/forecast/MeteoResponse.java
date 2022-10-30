@@ -1,4 +1,4 @@
-package sh.yannick.bot.weather.model;
+package sh.yannick.bot.weather.forecast;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

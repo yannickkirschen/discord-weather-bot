@@ -1,4 +1,4 @@
-package sh.yannick.bot.weather.model;
+package sh.yannick.bot.weather.calendar;
 
 import lombok.Data;
 

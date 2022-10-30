@@ -1,6 +1,4 @@
-package sh.yannick.bot.weather;
-
-import sh.yannick.bot.weather.model.Forecast;
+package sh.yannick.bot.weather.forecast;
 
 import java.time.LocalDate;
 import java.util.List;

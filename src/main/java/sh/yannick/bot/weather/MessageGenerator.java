@@ -2,7 +2,8 @@ package sh.yannick.bot.weather;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import sh.yannick.bot.weather.model.*;
+import sh.yannick.bot.weather.calendar.LectureDay;
+import sh.yannick.bot.weather.forecast.Forecast;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;

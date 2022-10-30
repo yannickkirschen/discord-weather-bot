@@ -1,4 +1,4 @@
-package sh.yannick.bot.weather;
+package sh.yannick.bot.weather.forecast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -8,7 +8,6 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.*;
 import org.apache.hc.core5.http.*;
 import org.springframework.stereotype.Repository;
-import sh.yannick.bot.weather.model.*;
 
 import java.io.*;
 import java.time.*;
