@@ -20,7 +20,7 @@ import java.util.*;
 @Repository
 public class LectureDayProviderICAL implements LectureDayProvider {
     @Override
-    public LectureDay retrieve(LocalDate date, String url) {
+    public LectureDay retrieve(LocalDate date, String url) throws NoLecturesFoundException {
         Calendar calendar = getCalendar(url);
 
         List<CalendarComponent> components = calendar.getComponents().stream().filter(c -> {
@@ -36,8 +36,7 @@ public class LectureDayProviderICAL implements LectureDayProvider {
         Optional<LocalDateTime> latestEnd = components.stream().map(c -> parseDateTime(c.getProperty("DTEND").getValue())).max(Comparator.naturalOrder());
 
         if (earliestBegin.isEmpty()) {
-            log.warn("There are no lectures for today ({}).", date);
-            throw new RuntimeException("No lectures today");
+            throw new NoLecturesFoundException();
         }
 
         LectureDay day = new LectureDay();

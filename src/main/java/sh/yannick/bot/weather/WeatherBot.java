@@ -34,10 +34,14 @@ public class WeatherBot {
         LocalDate date = LocalDate.of(2022, 10, 27);
         log.info("Generating forecast for {}.", date);
 
-        LectureDay lectureDay = lecturePlanProvider.retrieve(date, calendarUrl);
-        List<Forecast> forecasts = weatherProvider.retrieve(date, weatherUrl);
+        try {
+            LectureDay lectureDay = lecturePlanProvider.retrieve(date, calendarUrl);
+            List<Forecast> forecasts = weatherProvider.retrieve(date, weatherUrl);
 
-        String message = generator.generate(lectureDay, forecasts, new Locale(locale));
-        sender.send(message);
+            String message = generator.generate(lectureDay, forecasts, new Locale(locale));
+            sender.send(message);
+        } catch (NoLecturesFoundException e) {
+            log.error("There are no lectures for today ({}).", date);
+        }
     }
 }
