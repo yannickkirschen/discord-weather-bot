@@ -24,7 +24,8 @@ jobs:
                     distribution: adopt
                     java-version: 17
 
-            -   uses: oprypin/find-latest-tag@v1
+            -   name: Find latest release
+                uses: oprypin/find-latest-tag@v1
                 id: latest
                 with:
                     repository: yannickkirschen/discord-weather-bot
