@@ -18,13 +18,13 @@ This project features a scheduled workflow running the bot Tuesday through
 Thursday at 6 AM for my course at university. To do so, the following variables
 are set:
 
-Name                     | Value
--------------------------|------
-`SPRING_PROFILES_ACTIVE` | Spring profile to use (mostly `dhbw`).
-`DHBW_ICS_UID`           | UID of the lecture plan to use. The URL can be found in `application-dhbw.yml`.
-`MESSAGES_LOCALE`        | Locale to use for the messages (`DE` or `EN`, defaults to `DE`)
-`DISCORD_TOKEN`          | Token of the Discord bot.
-`DISCORD_CHANNEL_ID`     | ID of the channel to post messages in.
+| Name                     | Value                                                                           |
+|--------------------------|---------------------------------------------------------------------------------|
+| `SPRING_PROFILES_ACTIVE` | Spring profile to use (mostly `dhbw`).                                          |
+| `DHBW_ICS_UID`           | UID of the lecture plan to use. The URL can be found in `application-dhbw.yml`. |
+| `MESSAGES_LOCALE`        | Locale to use for the messages (`DE` or `EN`, defaults to `DE`)                 |
+| `DISCORD_TOKEN`          | Token of the Discord bot.                                                       |
+| `DISCORD_CHANNEL_ID`     | ID of the channel to post messages in.                                          |
 
 ## Execution
 
