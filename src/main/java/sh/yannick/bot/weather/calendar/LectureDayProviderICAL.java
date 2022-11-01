@@ -9,6 +9,7 @@ import org.apache.hc.client5.http.ClientProtocolException;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.*;
 import org.apache.hc.core5.http.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.*;
@@ -16,11 +17,22 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+/**
+ * Provides access to an ICAL calendar (ICS) that can be downloaded via a web resource.
+ * <p>
+ * This bean requires a property <code>calendar.url</code> pointing to the ICS file.
+ *
+ * @author Yannick Kirschen
+ * @since 1.0.0
+ */
 @Slf4j
 @Repository
 public class LectureDayProviderICAL implements LectureDayProvider {
+    @Value("${calendar.url}")
+    private String url;
+
     @Override
-    public LectureDay retrieve(LocalDate date, String url) throws NoLecturesFoundException {
+    public LectureDay retrieve(LocalDate date) throws NoLecturesFoundException {
         Calendar calendar = getCalendar(url);
 
         List<CalendarComponent> components = calendar.getComponents().stream().filter(c -> {
@@ -47,6 +59,12 @@ public class LectureDayProviderICAL implements LectureDayProvider {
         return day;
     }
 
+    /**
+     * Parses the terrible timestamp we receive from the ICS file to a {@link LocalDateTime}.
+     *
+     * @param value terrible timestamp from the ICS file
+     * @return a {@link LocalDateTime} you can actually work with
+     */
     private LocalDateTime parseDateTime(String value) {
         String[] dateTime = value.split("T");
         LocalDate date = LocalDate.parse(dateTime[0], DateTimeFormatter.BASIC_ISO_DATE);

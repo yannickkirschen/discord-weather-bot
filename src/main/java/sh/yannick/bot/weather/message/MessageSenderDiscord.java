@@ -6,6 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
+/**
+ * Sends a message to a discord channel.
+ * <p>
+ * This bean requires a property <code>discord.token</code> containing the bots token and <code>discord.channel</code>
+ * containing the destination channel's ID.
+ *
+ * @author Yannick Kirschen
+ * @since 1.0.0
+ */
 @Slf4j
 @Repository
 public class MessageSenderDiscord implements MessageSender {

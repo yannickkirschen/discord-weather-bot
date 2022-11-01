@@ -1,4 +1,4 @@
-package sh.yannick.bot.weather;
+package sh.yannick.bot.weather.message;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -9,9 +9,23 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
+/**
+ * Generates a localized recommendation message based on a {@link LectureDay} and weather {@link Forecast}s.
+ *
+ * @author Yannick Kirschen
+ * @since 1.0.0
+ */
 @Slf4j
 @Service
 public class MessageGenerator {
+    /**
+     * Generates a localized recommendation message.
+     *
+     * @param lectureDay lecture day to consider
+     * @param forecasts  weather forecasts for the lecture day
+     * @param locale     locale the messages should have
+     * @return a recommendation message
+     */
     public String generate(LectureDay lectureDay, List<Forecast> forecasts, Locale locale) {
         forecasts.sort(Comparator.comparing(Forecast::getDateTime));
 
