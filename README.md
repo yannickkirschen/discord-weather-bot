@@ -9,6 +9,17 @@ This is a discord bot that receives lectures from an ICS server and weather data
 from Open meteo and provides a forecast on how to pack an umbrella or not in a
 Discord channel.
 
+Basically, this bot works as follows:
+
+1. Get today's lecture plan
+2. Get today's weather forecast
+3. Check, if there is precipitation expected:
+    - two hours before the first lecture until the beginning of the first
+      lecture
+    - from the end of the last lecture until two hours later
+4. Generate a localized recommendation message
+5. Send the message to a Discord channel
+
 ## Configuration
 
 The bot is configured via Spring's `application.yml`. A template can be found
