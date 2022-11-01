@@ -2,7 +2,7 @@ name: Automatic Execution
 
 on:
     schedule:
-        -   cron: "0 6 * * 2-4" # At 06:00 AM, Tuesday through Thursday
+        -   cron: "0 5 * * 2-4" # At 06:00 AM UTC+1, Tuesday through Thursday
 
 env:
     SPRING_PROFILES_ACTIVE: ${{ secrets.SPRING_PROFILES_ACTIVE }}
