@@ -31,7 +31,7 @@ public class WeatherBot {
     private String weatherUrl;
 
     public void execute() {
-        LocalDate date = LocalDate.of(2022, 10, 27);
+        LocalDate date = LocalDate.now();
         log.info("Generating forecast for {}.", date);
 
         try {
