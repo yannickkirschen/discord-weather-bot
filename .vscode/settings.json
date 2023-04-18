@@ -1,0 +1,10 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "cSpell.words": [
+        "DHBW",
+        "oprypin",
+        "robinraju",
+        "yannickkirschen"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
