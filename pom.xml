@@ -45,7 +45,7 @@
         <spring.boot.version>3.2.0</spring.boot.version>
         <ical4j.version>3.2.14</ical4j.version>
         <discord4j.version>3.2.6</discord4j.version>
-        <netty.native.dns.resolver.mac.version>4.1.103.Final</netty.native.dns.resolver.mac.version>
+        <netty.native.dns.resolver.mac.version>4.1.104.Final</netty.native.dns.resolver.mac.version>
     </properties>
 
     <dependencyManagement>
